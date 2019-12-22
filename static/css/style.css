@@ -5,3 +5,14 @@
     width: 100%;
     text-align: center;
   }
+
+  #map {
+    height : 100%
+  }
+
+  .navbar-light{
+    background-color: rgba(161, 200, 187, 0.89);
+  }
+  .footer{
+    background-color: rgba(161, 200, 187, 0.89);
+  }
