@@ -1,18 +1,39 @@
+/* navbar styling */
+.navbar-light{
+  background-color: rgba(114, 192, 100, 0.918);
+  
+}
+/* footer styles */
 .footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
+    background-color: #444;
+    color:#fff;
+    height: 30px;
+    font-size: 85%;
   }
-
+  /* map area height adjustment */
   #map {
-    height : 100%
+    height : 100%;
+  }
+  /* row class padding  */
+  .row{
+    padding-top:40px;
+    padding-bottom: 40px;
   }
 
-  .navbar-light{
-    background-color: rgba(161, 200, 187, 0.89);
+  /* .thumbnail{
+    padding-top: 30px
   }
-  .footer{
-    background-color: rgba(161, 200, 187, 0.89);
+  .data{
+    padding-top: 50px;
+  } */
+  
+  /* links colors */
+  a{
+    color: black
   }
+  
