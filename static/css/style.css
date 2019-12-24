@@ -5,35 +5,41 @@
 }
 /* footer styles */
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background-color: #444;
-    color:#fff;
-    height: 30px;
-    font-size: 85%;
-  }
-  /* map area height adjustment */
-  #map {
-    height : 100%;
-  }
-  /* row class padding  */
-  .row{
-    padding-top:40px;
-    padding-bottom: 40px;
-  }
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #444;
+  color:#fff;
+  height: 30px;
+  font-size: 85%;
+}
+/* map area height adjustment */
+#map {
+  height : 100%;
+}
+/* row class padding  */
+.row{
+  padding-top:40px;
+  padding-bottom: 40px;
+}
 
-  /* .thumbnail{
-    padding-top: 30px
-  }
-  .data{
-    padding-top: 50px;
-  } */
-  
-  /* links colors */
-  a{
-    color: black
-  }
-  
+/* .thumbnail{
+  padding-top: 30px
+}
+.data{
+  padding-top: 50px;
+} */
+
+/* links colors */
+a{
+  color: black;
+}
+body{
+  background-color: #fafafa;
+}
+
+i {
+  margin-left: 5px;
+}
