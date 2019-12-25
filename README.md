@@ -22,5 +22,17 @@ The major types of renewable energy sources: Biomass, Hydropower, Geothermal, Wi
 
 ### Analaysis
 
+**.** Clean and moodify the data using Pandas and Jyputer Notebook.
+
+**.** Use SQL, PosgreSQL as database to keep data.
+
+**.** Use Pyhton Flask and SQLAlchemy to run the server.
+
+**.** Use HTML, CSS and JavaScript to create web pages.
+
+**.** Use D3, Plotly, Chat.js and Leaflet to visualize the data. 
+
+
+
 
 
