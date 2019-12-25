@@ -2,8 +2,11 @@
 ## Renewable Energy vs Consumption in US by State
 
 **Data Sources:**
+
 **.** https://data.world/doe/united-states-renewable-energy
+
 **.** https://www.eia.gov/state/rankings/
+
 **.** https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#cite_note-5
 
 **Description:**
@@ -16,4 +19,8 @@ The major types of renewable energy sources: Biomass, Hydropower, Geothermal, Wi
 **.** Total energy consumption vs. renewable energy potential by State: Can a State’s potential meet their consumption?
 
 **.** Types of renewable energy by highest potential: Which types account for the most potential? By State?
+
+### Analaysis
+
+
 
