@@ -25,21 +25,17 @@
   padding-bottom: 40px;
 }
 
-/* .thumbnail{
-  padding-top: 30px
-}
-.data{
-  padding-top: 50px;
-} */
-
 /* links colors */
 a{
   color: black;
 }
+
+/* set the body's background color */
 body{
   background-color: #fafafa;
 }
 
+/* set links icon left margin */
 i {
   margin-left: 5px;
 }

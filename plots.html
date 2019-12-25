@@ -32,10 +32,29 @@
             </div>
         </div>
     </nav>
+    <!-- create a container for the plots -->
     <div class=container>
-        
-        
-
+        <div class="row">
+            <div class="col-md-2">
+                <!-- create a div for the dropdown menu -->
+                <div class="dropdown">
+                    <h5>State</h5>
+                    <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                </div>    
+            </div>
+            <!-- create a div for the first plot -->
+            <div class="col-md-10">
+                <div id = "plot1"></div>
+            </div>
+        </div>
+        <!-- create a div for the second plot -->
+        <div class="col-md-6">
+            <div id="plot2"></div>
+        </div>
+        <!-- create a div for the third plot -->
+        <div class="col-md-6">
+            <div id="plot3"></div>
+        </div>
     </div>
 
     <!-- Footer -->
