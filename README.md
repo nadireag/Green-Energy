@@ -1,7 +1,7 @@
 
 ### Renewable Energy vs Consumption in US by State
 
-#####Data Sources:
+Data Sources:
 . https://data.world/doe/united-states-renewable-energy
 . https://www.eia.gov/state/rankings/
 . https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#cite_note-5
