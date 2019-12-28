@@ -37,4 +37,4 @@ The major types of renewable energy sources: Biomass, Hydropower, Geothermal, Wi
 ## Development Team
 * Nadire Gokcehan - [@nadireg](https://github.com/nadireag)
 * Reid Powell - [@ReidP31](https://github.com/ReidP31)
-* Jacob Abdel - [@jacobabdel](https://github.com/jacobabdel)
+* Jacob Abdelkhaleq - [@jacobabdel](https://github.com/jacobabdel)
