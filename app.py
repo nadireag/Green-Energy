@@ -12,11 +12,17 @@ from sqlalchemy import create_engine
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 
-
-
+from config import HEROKU_PG_URI
 
 app = Flask(__name__)
 
+db_uri = HEROKU_PG_URI
+
+engine = create_engine(db_uri)
+data = engine.execute("select * from green_energy")
+
+for d in data:
+    print(d)
 
 
 
