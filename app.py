@@ -14,11 +14,13 @@ from flask_sqlalchemy import SQLAlchemy
 
 from config import HEROKU_PG_URI
 
+# create the flask app
 app = Flask(__name__)
 
+# get the heroku url
 db_uri = HEROKU_PG_URI
 
-# app config
+# app configuration
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 
@@ -63,7 +65,17 @@ def get_energy_comparison_data():
 
     results = db.session.query(*sel).all()
 
-    return jsonify(results)
+    # create a dictionary for each row of comparison data
+    comparison_data = {
+        
+        "rank": [result[0] for result in results],
+        "state": [result[1] for result in results],
+        "total_energy_consumed_gwh" : [result[2] for result in results],
+        "renewable_total" : [result[3] for result in results],
+        "energy_difference" : [result[4] for result in results]
+    }
+    # jsonify the dictionary
+    return jsonify(comparison_data)
 
 
 @app.route("/api/green_energy")
@@ -89,7 +101,30 @@ def get_green_energy_data():
 
     results = db.session.query(*sel).all()
 
-    return jsonify(results)
+    # create a dictionary for green energy data to format and send as jsonify
+    green_energy_data = {
+        
+        "id": [result[0] for result in results],
+        "state": [result[1] for result in results],
+        "urban_solar": [result[2] for result in results],
+        "rural_solar": [result[3] for result in results],
+        "rooftop_solar": [result[4] for result in results],
+        "csp_solar": [result[5] for result in results],
+        "onshore_wind": [result[6] for result in results],
+        "offshore_wind": [result[7] for result in results],
+        "biopower_solid": [result[8] for result in results],
+        "biopower_gaseous": [result[9] for result in results],
+        "geotermal_hydrothermal": [result[10] for result in results],
+        "egs_geothermal":[result[11] for result in results],
+        "hydropower":[result[12] for result in results], 
+        "rank": [result[13] for result in results],
+        "energy_consumption": [result[14] for result in results],
+        "population": [result[15] for result in results]
+    }
+
+
+    return jsonify(green_energy_data)
 
 if __name__ == "__main__":
     app.run(debug=True)
+
