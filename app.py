@@ -21,12 +21,6 @@ app = Flask(__name__)
 
 db_uri = HEROKU_PG_URI
 
-# engine = create_engine(db_uri)
-# data = engine.execute("select * from green_energy")
-
-# for d in data:
-#     print(d)
-
 # app config
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
@@ -65,9 +59,9 @@ def get_energy_comparison_data(rank):
     sel = [
         Energy_Comparison.rank,
         Energy_Comparison.state,
-        #Energy_Comparison.total_energy_consumed_gwh,
-        #Energy_Comparison.total_renewable,
-        #Energy_Comparison.energy_difference
+        Energy_Comparison.total_energy_consumed_gwh,
+        Energy_Comparison.total_renewable,
+        Energy_Comparison.energy_difference
     ]
 
     results = db.session.query(*sel).filter(Energy_Comparison.rank == rank).all()
@@ -77,12 +71,11 @@ def get_energy_comparison_data(rank):
     for result in results:
         # rank = Decimal(result[0])
         json.dumps( { 'rank': float(result[0]) } )
-        # json.dumps(rank, cls=DecimalEncoder)
         energy_comparison["rank"] = rank
         energy_comparison["state"] = result[0]
-        #energy_comparison["total_energy_consumed_gwh"] = result[2]
-        #energy_comparison["total_renewable"] = result[3]
-        #energy_comparison["energy_difference"] = result[4]
+        energy_comparison["total_energy_consumed_gwh"] = result[2]
+        energy_comparison["total_renewable"] = result[3]
+        energy_comparison["energy_difference"] = result[4]
 
     return jsonify(energy_comparison)
 
