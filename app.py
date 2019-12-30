@@ -12,9 +12,6 @@ from sqlalchemy import create_engine
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 
-import json
-from decimal import Decimal
-
 from config import HEROKU_PG_URI
 
 app = Flask(__name__)
@@ -54,8 +51,8 @@ def plots():
 
 
 # API routes
-@app.route("/api/energy_comparison/<rank>")
-def get_energy_comparison_data(rank):
+@app.route("/api/energy_comparison")
+def get_energy_comparison_data():
     sel = [
         Energy_Comparison.rank,
         Energy_Comparison.state,
@@ -64,22 +61,35 @@ def get_energy_comparison_data(rank):
         Energy_Comparison.energy_difference
     ]
 
-    results = db.session.query(*sel).filter(Energy_Comparison.rank == rank).all()
+    results = db.session.query(*sel).all()
 
-    # Create a dictionary entry for each row of metadata information
-    energy_comparison = {}
-    for result in results:
-        # rank = Decimal(result[0])
-        json.dumps( { 'rank': float(result[0]) } )
-        energy_comparison["rank"] = rank
-        energy_comparison["state"] = result[0]
-        energy_comparison["total_energy_consumed_gwh"] = result[2]
-        energy_comparison["total_renewable"] = result[3]
-        energy_comparison["energy_difference"] = result[4]
-
-    return jsonify(energy_comparison)
+    return jsonify(results)
 
 
+@app.route("/api/green_energy")
+def get_green_energy_data():
+    sel = [
+        Green_Energy.id,
+        Green_Energy.state,
+        Green_Energy.urban_solar,
+        Green_Energy.rural_solar,
+        Green_Energy.rooftop_solar,
+        Green_Energy.csp_solar,
+        Green_Energy.onshore_wind,
+        Green_Energy.offshore_wind,
+        Green_Energy.biopower_solid,
+        Green_Energy.biopower_gaseous,
+        Green_Energy.geotermal_hydrothermal,
+        Green_Energy.egs_geothermal,
+        Green_Energy.hydropower,
+        Green_Energy.rank,
+        Green_Energy.energy_consumption,
+        Green_Energy.population
+    ]
+
+    results = db.session.query(*sel).all()
+
+    return jsonify(results)
 
 if __name__ == "__main__":
     app.run(debug=True)
