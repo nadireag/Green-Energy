@@ -25,3 +25,16 @@ CREATE TABLE green_energy (
 );
 
 select * from green_energy;
+
+
+DROP Table energy_comparison;
+
+CREATE TABLE energy_comparison(
+	rank numeric,
+	state varchar(30) not null,
+	total_energy_consumed_gwh numeric,
+	total_renewable numeric,
+	energy_difference numeric	
+);
+
+select * from energy_comparison;
