@@ -39,3 +39,17 @@ body{
 i {
   margin-left: 5px;
 }
+
+/* small screen adjustments*/
+@media(max-width:992px){
+  
+  #navbarSupportedContent {
+    display: block;
+  }
+}
+
+@media(max-width:767px){
+  .thumbnail{
+    width: 40%
+  }
+}
