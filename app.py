@@ -15,7 +15,7 @@ from flask_sqlalchemy import SQLAlchemy
 from config import HEROKU_PG_URI
 
 # create the flask app
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="/static")
 
 # get the heroku url
 db_uri = HEROKU_PG_URI
@@ -60,7 +60,9 @@ def get_energy_comparison_data():
         Energy_Comparison.state,
         Energy_Comparison.total_energy_consumed_gwh,
         Energy_Comparison.total_renewable,
-        Energy_Comparison.energy_difference
+        Energy_Comparison.energy_difference,
+        Energy_Comparison.lattitude,
+        Energy_Comparison.longitude
     ]
 
     results = db.session.query(*sel).all()
@@ -72,7 +74,9 @@ def get_energy_comparison_data():
         "state": [result[1] for result in results],
         "total_energy_consumed_gwh" : [result[2] for result in results],
         "renewable_total" : [result[3] for result in results],
-        "energy_difference" : [result[4] for result in results]
+        "energy_difference" : [result[4] for result in results],
+        "lat": [result[5] for result in results],
+        "long":[result[6] for result in results]
     }
     # jsonify the dictionary
     return jsonify(comparison_data)
@@ -127,4 +131,3 @@ def get_green_energy_data():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
