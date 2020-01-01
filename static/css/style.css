@@ -1,7 +1,6 @@
 /* navbar styling */
 .navbar-light{
   background-color: rgba(114, 192, 100, 0.918);
-  
 }
 /* footer styles */
 .footer {
@@ -17,7 +16,12 @@
 }
 /* map area height adjustment */
 #map {
-  height : 100%;
+  position: absolute;
+  border-top: 1px solid #444;
+  top: 56px;
+  right: 0;
+  bottom: 30px;
+  left: 0;
 }
 /* row class padding  */
 .row{
