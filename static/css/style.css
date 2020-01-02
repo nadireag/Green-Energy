@@ -1,3 +1,8 @@
+/* set the body's background color */
+body{
+  background-color: #fafafa;
+}
+
 /* navbar styling */
 .navbar-light{
   background-color: rgba(114, 192, 100, 0.918);
@@ -29,19 +34,31 @@
   padding-bottom: 40px;
 }
 
+/* add legends syles */
+.legend {
+  line-height: 18px;
+  color:rgb(63, 62, 62);
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
 /* links colors */
 a{
   color: black;
 }
 
-/* set the body's background color */
-body{
-  background-color: #fafafa;
-}
-
 /* set links icon left margin */
 i {
   margin-left: 5px;
+}
+
+.popup {
+  pointer-events: none;
 }
 
 /* small screen adjustments*/

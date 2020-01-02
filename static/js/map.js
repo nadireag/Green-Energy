@@ -29,16 +29,7 @@ d3.json(data_url, function(data){
         }
     };
 
-    // console.log('statesData:', statesData.features);
-
-    //  create a function to grap popup info
-    function onEachFeature(feature, layer) {
-        layer.bindPopup("<h5>  " + (feature.properties.name)+ "</h5><p><strong>Renewable Energy: </strong>" + feature.properties.renewable_total +
-          "</p><strong>Total Consumed Energy: </strong>" + (feature.properties.total_energy_consumed_gwh) + "</p>" +
-          "<p><strong>Consumed Energy Rank: </strong>" + (feature.properties.rank)) + "</p>"
-    };
-
-    //  grab energy difference min and max values to create the color scale
+    // grab energy difference min and max values to create the color scale
     var min = Math.min.apply(null, data.energy_difference);
     var max = Math.max.apply(null, data.energy_difference);
 
@@ -61,14 +52,68 @@ d3.json(data_url, function(data){
         return {
             fillColor: getColor(feature.properties.energy_difference),
             weight: 2,
-            opacity: 1,
-            color: 'white',
-            dashArray: '3',
-            fillOpacity: 0.7
+            opacity: 0.8,
+            color: 'gray',
+            fillOpacity: 0.6
         };
     }
     
-    //  add styles and popup to our map
-    L.geoJson(statesData, {style: style, onEachFeature:onEachFeature}).addTo(map);
+    //  add styles to our map
+    L.geoJson(statesData, { style: style }).addTo(map);
+
+    //  add the legend to the map
+    var legend = L.control({position: 'bottomright'});
+
+    legend.onAdd = function (map) {
+        // create a div for the legend
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0, 1000000, 5000000, 10000000, 20000000, 40000000, 50000000]
+            labels = [];
+
+        // loop through our density intervals and generate a label with a colored square for each interval
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        }
+
+        return div;
+    };
+    legend.addTo(map);
+    
+    // add mouseover event for each feature to style and show popup
+    function onEachFeature(feature, layer) {
+        layer.on('mouseover', function(e) {
+            layer.setStyle({
+                weight: 5,
+                color: '#666',
+                dashArray: '',
+                fillOpacity: 1
+            });
+        
+            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                this.bringToFront();
+            }
+            layer.openPopup();
+        }).on('mouseout', function(e) {
+            geojson.resetStyle(e.target);
+            layer.closePopup();
+        });
+        
+        // create the popup variable
+        var popupHtml = "<h5>" + (feature.properties.name) + "</h5>" + 
+        "<p><strong>Renewable Energy: </strong>" + feature.properties.renewable_total + "</p>" + 
+        "<p><strong>Total Consumed Energy: </strong>" + (feature.properties.total_energy_consumed_gwh) + "</p>" + 
+        "<p><strong>Consumed Energy Rank: </strong>" + (feature.properties.rank) + "</p>";
+
+        // add the popup to the map and set location
+        layer.bindPopup(popupHtml, { className: 'popup', 'offset': L.point(0, -20) });
+    }
+
+    //  add the style and onEachFeature function to the map
+    geojson = L.geoJson(statesData, {
+        style: style,
+        onEachFeature: onEachFeature
+    }).addTo(map);
 
 });
