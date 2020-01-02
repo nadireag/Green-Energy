@@ -29,7 +29,7 @@ d3.json(data_url, function(data){
         }
     };
 
-    console.log('statesData:', statesData.features);
+    // console.log('statesData:', statesData.features);
 
     //  create a function to grap popup info
     function onEachFeature(feature, layer) {
@@ -38,14 +38,11 @@ d3.json(data_url, function(data){
           "<p><strong>Consumed Energy Rank: </strong>" + (feature.properties.rank)) + "</p>"
     };
 
-    //  grab energy difference data and find min and max value to create color scale
-    var ed = data.energy_difference;
-    var min = Math.min.apply(null, ed);
-    var max = Math.max.apply(null, ed);
+    //  grab energy difference min and max values to create the color scale
+    var min = Math.min.apply(null, data.energy_difference);
+    var max = Math.max.apply(null, data.energy_difference);
 
-    console.log(ed)
-
-    console.log('min, max:', min, max);
+    // console.log('min, max:', min, max);
 
     // create function that assign colors
     function getColor(d) {
@@ -75,7 +72,3 @@ d3.json(data_url, function(data){
     L.geoJson(statesData, {style: style, onEachFeature:onEachFeature}).addTo(map);
 
 });
-
-
-
-
