@@ -33,7 +33,7 @@ d3.json(data_url, function(data){
     var min = Math.min.apply(null, data.energy_difference);
     var max = Math.max.apply(null, data.energy_difference);
 
-    // console.log('min, max:', min, max);
+    console.log('min, max:', min, max);
 
     // create function that assign colors
     function getColor(d) {
@@ -54,7 +54,7 @@ d3.json(data_url, function(data){
             weight: 2,
             opacity: 0.8,
             color: 'gray',
-            fillOpacity: 0.6
+            fillOpacity: 0.7
         };
     }
     
