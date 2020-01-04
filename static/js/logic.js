@@ -25,62 +25,20 @@ function buildCharts(state) {
             datasets: [{
                 label: 'Total Energy Consumed (Gwh)',
                 data: [totalConsumption],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    // 'rgba(54, 162, 235, 0.2)',
-                    // 'rgba(255, 206, 86, 0.2)',
-                    // 'rgba(75, 192, 192, 0.2)',
-                    // 'rgba(153, 102, 255, 0.2)',
-                    // 'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    // 'rgba(54, 162, 235, 1)',
-                    // 'rgba(255, 206, 86, 1)',
-                    // 'rgba(75, 192, 192, 1)',
-                    // 'rgba(153, 102, 255, 1)',
-                    // 'rgba(255, 159, 64, 1)'
-                ],
+                backgroundColor: ['#ef3b2c'],
+                borderColor: ['#ef3b2c'],
                 borderWidth: 1
             }, {
                 label: 'Total Potential Renewable Energy',
                 data: [totalRenewable],
-                backgroundColor: [
-                    // 'rgba(255, 99, 132, 0.2)',
-                    // 'rgba(54, 162, 235, 0.2)',
-                    // 'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    // 'rgba(153, 102, 255, 0.2)',
-                    // 'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    // 'rgba(255, 99, 132, 1)',
-                    // 'rgba(54, 162, 235, 1)',
-                    // 'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    // 'rgba(153, 102, 255, 1)',
-                    // 'rgba(255, 159, 64, 1)'
-                ],
+                backgroundColor: ['#74c476'],
+                borderColor: ['#74c476' ],
                 borderWidth: 1
             }, {
                 label: 'Energy Difference',
                 data: [energyDifference],
-                backgroundColor: [
-                    // 'rgba(255, 99, 132, 0.2)',
-                    // 'rgba(54, 162, 235, 0.2)',
-                    // 'rgba(255, 206, 86, 0.2)',
-                    // 'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    // 'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    // 'rgba(255, 99, 132, 1)',
-                    // 'rgba(54, 162, 235, 1)',
-                    // 'rgba(255, 206, 86, 1)',
-                    // 'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    // 'rgba(255, 159, 64, 1)'
-                ],
+                backgroundColor: ['#2b8cbe'],
+                borderColor: ['#2b8cbe'],
                 borderWidth: 1
             }]
         },
@@ -90,6 +48,12 @@ function buildCharts(state) {
                 text: "US States Energy Comparison Bar Chart",
                 fontSize: 18
             },
+            legend: {
+                position: 'right',
+                alignment: 'center',
+                labels: {
+                    boxWidth: 10
+                },
             scales: {
                 yAxes: [{
                     ticks: {
@@ -98,7 +62,8 @@ function buildCharts(state) {
                     }]
                 },
             }
-        });
+        }
+      });
     return barChart;
     });
 
@@ -121,17 +86,17 @@ function buildCharts(state) {
 
         var pieDataArr = [
 
-            bioPowerGas,
-            bioPowerSolid,
-            cspSolar,
-            egsGeoThermal,
-            geoThermalHydrothermal,
-            hydropower,
-            offshoreWind,
-            onshoreWind,
-            rooftopSolar,
-            ruralSolar,
-            urbanSolar
+            bioPowerGas,// 1
+            bioPowerSolid, // 2
+            cspSolar,// 3
+            egsGeoThermal,// 4
+            geoThermalHydrothermal, //5
+            hydropower, //6
+            offshoreWind, //7
+            onshoreWind, //8
+            rooftopSolar, //9
+            ruralSolar,//10
+            urbanSolar//11  
 
         ]
 
@@ -148,9 +113,9 @@ function buildCharts(state) {
                         'rgb(35, 86, 239)',
                         'rgb(239, 86, 35)',
                         'rgb(188, 35, 239)',
-                        'rgb(154, 239, 35)',
-                        'rgb(35, 226, 239)',
-                        'rgba(117, 239, 35, 0.8)',
+                        '#74c476',
+                        '#4eb3d3',
+                        '#E96C05',
                         'rgba(235, 235, 9, 0.8)',
                         'rgba(235, 122, 9, 0.8)'
                         
