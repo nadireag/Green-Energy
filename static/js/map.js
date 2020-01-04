@@ -45,7 +45,7 @@ d3.json(data_url, function(data){
                d < 40000000 ? "#41ab5d":
                d < 50000000 ? "#238b45":
                               "#005a32"                                   
-    }
+    }     
 
     // create style function 
     function style(feature) {
@@ -67,7 +67,7 @@ d3.json(data_url, function(data){
     legend.onAdd = function (map) {
         // create a div for the legend
         var div = L.DomUtil.create('div', 'info legend'),
-            grades = [0, 1000000, 5000000, 10000000, 20000000, 40000000, 50000000]
+            grades = [ 0, 1000000, 5000000, 10000000, 20000000, 40000000, 50000000]
             labels = [];
 
         // loop through our density intervals and generate a label with a colored square for each interval

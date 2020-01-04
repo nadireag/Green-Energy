@@ -46,26 +46,32 @@
         <div class="row">
             <div class="col-md-2">
                 <!-- create a div for the dropdown menu -->
-                <div class="dropdown">
+                <div class="well">
                     <h5>State</h5>
-                    <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                    <select id="selDataset" onchange="stateChange(this.value)"></select>
                 </div>    
             </div>
             <!-- create a div for the first plot -->
             <div class="col-md-5">
-                <canvas id="myChart" width="400" height="400"></canvas>
+                <canvas id="barChart" width="400" height="400"></canvas>
             </div>
             <!-- create div for the second plot -->
             <div class="col-md-5">
-                <canvas id="myChart" width="400" height="400"></canvas>
+                <canvas id="pieChart" width="400" height="400"></canvas>
             </div>
         </div>
         <!-- create second row and div for the third plot -->
-        <div class= "row">
+        <div class="row">
             <div class="col-md-12">
                 <div id="plot3"></div>
             </div>
-        </div>   
+        </div> 
+        <!-- third row for the fourth plot -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="plot4"></div>
+            </div>
+        </div>    
     </div>
 
     <!-- Footer -->
@@ -81,6 +87,7 @@
     
     <!-- our js file -->
     <script type="text/javascript" src= "../static/js/logic.js"></script>
+    <script type="text/javascript" src = "../static/js/plots.js"></script>
     
 </body>
 </html>
