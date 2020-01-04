@@ -85,11 +85,15 @@ function buildCharts(state) {
             }]
         },
         options: {
+            title: {
+                display: true,
+                text: "US States Energy Comparison Bar Chart",
+                fontSize: 18
+            },
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true,
-                        
+                        beginAtZero: true 
                         },
                     }]
                 },
@@ -166,6 +170,20 @@ function buildCharts(state) {
                     "Solar - Urban"
                 ]
             },
+            options: {
+                title: {
+                    display: true,
+                    text: "Renewables by State",
+                    fontSize: 18
+                },
+                legend: {
+                    position: 'right',
+                    alignment: 'center',
+                    labels: {
+                        boxWidth: 10
+                    }
+                }
+            }
         });
         return myPieChart
     });
