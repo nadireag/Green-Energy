@@ -99,7 +99,6 @@ function buildCharts(state) {
     });
 
     d3.json(greenEnergyURL, geData => {
-
         var allStates = geData.state;
         var selState = allStates.filter(selectedState => selectedState == state);
         var stateIndex = allStates.indexOf(selState[0])
@@ -115,8 +114,6 @@ function buildCharts(state) {
         var rooftopSolar = geData.rooftop_solar[stateIndex];
         var ruralSolar = geData.rural_solar[stateIndex];
         var urbanSolar = geData.urban_solar[stateIndex];
-
-        console.log(geData[0])
 
         var pieDataArr = [
 
@@ -212,6 +209,7 @@ function stateChange(newState) {
     .attr('id','pieChart')
     .attr('width','400')
     .attr('height','400');
+
     // Fetch new data each time a new state is selected 
     buildCharts(newState);
 }
