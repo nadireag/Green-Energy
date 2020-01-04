@@ -43,22 +43,24 @@
     <!-- create a container for the plots -->
     <div class=container>
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-12">
                 <!-- create a div for the dropdown menu -->
                 <div class="well">
                     <h5>State</h5>
                     <select id="selDataset" onchange="stateChange(this.value)"></select>
                 </div>    
             </div>
+        </div>
+        <div class="row">
             <!-- create a div for the first plot -->
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div id="plot1">
                     <canvas id="barChart" width="400" height="400"></canvas>
                 </div>
             </div>
         
-        <!-- create a div for the second plot -->
-            <div class="col-md-5">
+            <!-- create a div for the second plot -->
+            <div class="col-md-6">
                 <div id="plot2">
                     <canvas id="pieChart" width="400" height="400"></canvas>
                 </div>
