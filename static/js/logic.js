@@ -1,4 +1,6 @@
 
+
+
 var greenEnergyURL = "api/green_energy";
 var energyComparisonURL ="api/energy_comparison"
 
@@ -171,7 +173,6 @@ function buildCharts(state) {
         return myPieChart
     });
 };
-    
 
 
 // Populate the State DropDown & create initial plots 
@@ -216,6 +217,7 @@ function stateChange(newState) {
 }
 
 init();
+
 
 
 
