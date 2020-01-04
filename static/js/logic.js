@@ -45,7 +45,7 @@ function buildCharts(state) {
         options: {
             title: {
                 display: true,
-                text: "Energy Comparison by State",
+                text: "Energy Comparison by State (Gwhs)",
                 fontSize: 18
             },
             legend: {
@@ -54,14 +54,19 @@ function buildCharts(state) {
                 labels: {
                     boxWidth: 10
                 },
+            },
             scales: {
                 yAxes: [{
                     ticks: {
                         beginAtZero: true 
                         },
-                    }]
-                },
-            }
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Giga-watt Hours (Gwhs)",
+                        padding: 10
+                    }
+                }]
+            },
         }
       });
     return barChart;
@@ -138,7 +143,7 @@ function buildCharts(state) {
             options: {
                 title: {
                     display: true,
-                    text: "Renewables by State",
+                    text: "Renewables by State (Gwhs)",
                     fontSize: 18
                 },
                 legend: {
