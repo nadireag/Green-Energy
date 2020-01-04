@@ -134,7 +134,7 @@ function buildCharts(state) {
 
         var ctx = document.getElementById('pieChart').getContext('2d');
         var myPieChart = new Chart(ctx, {
-            type: 'pie',
+            type: 'doughnut',
             data: {
                 datasets: [{
                     data: pieDataArr,
@@ -198,10 +198,17 @@ function init() {
 function stateChange(newState) {
     // Remove previous chart by removing canvas element
     d3.select("#barChart").remove();
-    // Add canvas element back
+    d3.select("#pieChart").remove();
+    // Add canvas elements back
     d3.select("#plot1")
     .append('canvas')
     .attr('id','barChart')
+    .attr('width','400')
+    .attr('height','400');
+
+    d3.select("#plot2")
+    .append('canvas')
+    .attr('id','pieChart')
     .attr('width','400')
     .attr('height','400');
     // Fetch new data each time a new state is selected 

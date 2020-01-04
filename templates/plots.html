@@ -53,22 +53,33 @@
                 </div>    
             </div>
             <!-- create a div for the first plot -->
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div id = "plot1">
                     <canvas id="barChart" width="400" height="400"></canvas>
                 </div>
             </div>
-        </div>
+        
         <!-- create a div for the second plot -->
-        <div class="col-md-6">
-            <div id="plot2">
-                <canvas id="pieChart" width="400" height="400"></canvas>
+            <div class="col-md-5">
+                <div id="plot2">
+                    <canvas id="pieChart" width="400" height="400"></canvas>
+                </div>
             </div>
         </div>
-        <!-- create a div for the third plot -->
-        <div class="col-md-6">
-            <!-- <div id="plot3"></div> -->
+
+        <!-- create second row and div for the third plot -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="plot3"></div>
+            </div>
         </div>
+        <!-- third row for the fourth plot -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="plot4"></div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Footer -->
@@ -82,8 +93,9 @@
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     
-    <!-- our js file -->
+    <!-- our js files -->
     <script type="text/javascript" src= "../static/js/logic.js"></script>
+    <script type="text/javascript" src= "..static/js/plots.js"></script>
     
 </body>
 </html>
