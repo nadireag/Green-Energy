@@ -132,3 +132,4 @@ dmypy.json
 .DS_Store
 static/js/config.js
 config.py
+project-2.code-workspace

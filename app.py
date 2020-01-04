@@ -14,6 +14,9 @@ from flask_sqlalchemy import SQLAlchemy
 
 from config import HEROKU_PG_URI
 
+
+
+
 # create the flask app
 app = Flask(__name__, static_url_path="/static")
 
