@@ -45,7 +45,7 @@ function buildCharts(state) {
         options: {
             title: {
                 display: true,
-                text: "US States Energy Comparison Bar Chart",
+                text: "Energy Comparison by State",
                 fontSize: 18
             },
             legend: {
