@@ -23,19 +23,19 @@ function buildCharts(state) {
         data: {
             labels: [`Energy Comparison for ${selState}`],
             datasets: [{
-                label: 'Total Energy Consumed (Gwh)',
+                label: 'Tot. Consumed',
                 data: [totalConsumption],
                 backgroundColor: ['#ef3b2c'],
                 borderColor: ['#ef3b2c'],
                 borderWidth: 1
             }, {
-                label: 'Total Potential Renewable Energy',
+                label: 'Tot. Renewable',
                 data: [totalRenewable],
                 backgroundColor: ['#74c476'],
                 borderColor: ['#74c476' ],
                 borderWidth: 1
             }, {
-                label: 'Energy Difference',
+                label: 'Energy Diff.',
                 data: [energyDifference],
                 backgroundColor: ['#2b8cbe'],
                 borderColor: ['#2b8cbe'],
