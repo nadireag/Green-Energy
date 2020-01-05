@@ -2,6 +2,25 @@
 var mapboxAccessToken = API_KEY;
 var map = L.map('map').setView([37.8, -96], 5);
 
+// create a function to resize the map for small screens
+reZoomMap(); 
+
+window.addEventListener("resize", function() {
+    reZoomMap();
+});
+
+function reZoomMap() {
+    var x = window.innerWidth || this.document.documentElement.clientWidth;
+
+    if(x >= 600 && x <= 1000) {
+        map.setView([37.8, -96], 4.3);
+    } else if(x < 600) {
+        map.setView([37.8, -96], 3.4);
+    } else {
+        map.setView([37.8, -96], 5);
+    }
+}
+
 // add light tile layer
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=' + mapboxAccessToken, {
     id: 'mapbox/light-v9',
@@ -37,15 +56,16 @@ d3.json(data_url, function(data){
 
     // create function that assign colors
     function getColor(d) {
-        return d < 0  ? "#f7fcf5":
-               d < 1000000 ? "#e5f5e0":
-               d < 5000000 ? "#c7e9c0":
-               d < 10000000 ? "#a1d99b":
-               d < 20000000 ? "#74c476":
-               d < 40000000 ? "#41ab5d":
-               d < 50000000 ? "#238b45":
-                              "#005a32"                                   
+        return d < 0  ? "#e5f5e0":
+               d < 1000000 ? "#c7e9c0":
+               d < 5000000 ? "#a1d99b":
+               d < 10000000 ? "#74c476":
+               d < 20000000 ? "#41ab5d":
+               d < 30000000 ? "#238b45":
+               d < 40000000 ? "#006d2c":
+                              " #00441b"                                   
     }     
+
 
     // create style function 
     function style(feature) {
@@ -66,16 +86,20 @@ d3.json(data_url, function(data){
 
     legend.onAdd = function (map) {
         // create a div for the legend
-        var div = L.DomUtil.create('div', 'info legend'),
-            grades = [ 0, 1000000, 5000000, 10000000, 20000000, 40000000, 50000000]
+        var div = L.DomUtil.create('div', 'info legend');
+            div.innerHTML += "<p>Energy Difference (million)</p>";
+            grades = [ -100000,0, 1000000, 5000000, 10000000, 20000000, 30000000, 40000000]
             labels = [];
+            grades1 = ["<0", "0-1", "1-5", "5-10", "10-20", "20-30", "30-40", "40+"]
 
+        
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
-                '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-        }
+                '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' + 
+                // grades[i] + (grades[i + 1] ? '&ndash;'  + grades[i + 1] + '<br>' : '+');
+                grades1[i] + '<br>' ;
+        }        
 
         return div;
     };
@@ -104,6 +128,7 @@ d3.json(data_url, function(data){
         var popupHtml = "<h5>" + (feature.properties.name) + "</h5>" + 
         "<p><strong>Renewable Energy: </strong>" + feature.properties.renewable_total + "</p>" + 
         "<p><strong>Total Consumed Energy: </strong>" + (feature.properties.total_energy_consumed_gwh) + "</p>" + 
+        "<p><strong>Energy Difference: </strong>" + (feature.properties.energy_difference) + "</p>" +
         "<p><strong>Consumed Energy Rank: </strong>" + (feature.properties.rank) + "</p>";
 
         // add the popup to the map and set location
