@@ -21,6 +21,8 @@ The major types of renewable energy sources: Biomass, Hydropower, Geothermal, Wi
 
 ### Questions:
 
+* Which states are using the most renewable energy?
+
 * Total energy consumption vs. renewable energy potential by State: Can a State’s potential meet their consumption?
 
 * Types of renewable energy by highest potential: Which types account for the most potential? By State?
@@ -35,7 +37,7 @@ The major types of renewable energy sources: Biomass, Hydropower, Geothermal, Wi
 
 * Use HTML, CSS and JavaScript on the front end.
 
-* Use D3, Plotly, Chat.js and Leaflet to visualize the data. 
+* Use D3, Plotly, Chart.js and Leaflet to visualize the data. 
 
 
 ## Development Team
