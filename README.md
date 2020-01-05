@@ -9,6 +9,10 @@
 
 * https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#cite_note-5
 
+* https://www.kaggle.com/washimahmed/usa-latlong-for-state-abbreviations
+
+* https://leafletjs.com/examples/choropleth/us-states.js
+
 ### Description:
 
 Renewable energy is energy that comes from natural resources such as sunlight, wind, rain, tides, plants, waves and geothermal heat. These energy resources are renewable, meaning they are naturally replenished.
@@ -16,6 +20,8 @@ Renewable energy is energy that comes from natural resources such as sunlight, w
 The major types of renewable energy sources: Biomass, Hydropower, Geothermal, Wind and Solar.
 
 ### Questions:
+
+* Which states are using the most renewable energy?
 
 * Total energy consumption vs. renewable energy potential by State: Can a State’s potential meet their consumption?
 
@@ -25,13 +31,13 @@ The major types of renewable energy sources: Biomass, Hydropower, Geothermal, Wi
 
 * Clean and modify the data using Pandas and Jupyter Notebook.
 
-* Use PostgreSQL as the database.
+* Use Heroku and PostgreSQL as the database.
 
 * Use Python as the server side language, Flask as the web server and SQLAlchemy as the ORM.
 
 * Use HTML, CSS and JavaScript on the front end.
 
-* Use D3, Plotly, Chat.js and Leaflet to visualize the data. 
+* Use D3, Plotly, Chart.js and Leaflet to visualize the data. 
 
 
 ## Development Team
