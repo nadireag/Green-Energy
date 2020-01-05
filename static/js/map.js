@@ -97,10 +97,8 @@ d3.json(data_url, function(data){
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
                 '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' + 
-                // grades[i] + (grades[i + 1] ? '&ndash;'  + grades[i + 1] + '<br>' : '+');
                 grades1[i] + '<br>' ;
         }        
-
         return div;
     };
     legend.addTo(map);
