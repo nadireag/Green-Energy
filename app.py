@@ -12,16 +12,15 @@ from sqlalchemy import create_engine
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 
-from config import HEROKU_PG_URI
-
-
+from dotenv import load_dotenv
+load_dotenv()
 
 
 # create the flask app
 app = Flask(__name__, static_url_path="/static")
 
-# get the heroku url
-db_uri = HEROKU_PG_URI
+# get the heroku database url from environment
+db_uri = os.environ["DATABASE_URL"]
 
 # app configuration
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
