@@ -14,10 +14,24 @@ d3.json(url, function(data) {
     //  create keys variable
     var keys = Object.keys(data);
 
+    var plotNames = {
+        biopower_gaseous: "Biopower - Gas",
+        biopower_solid: "Biopower - Solid",
+        csp_solar: "CSP Solar",
+        egs_geothermal: "EGS Geothermal",
+        geotermal_hydrothermal: "Hydrothermal Geothermal",
+        hydropower: "Hydropower",
+        offshore_wind: "Wind - Offshore",
+        onshore_wind: "Wind - Onshore",
+        rooftop_solar: "Solar - Rooftop",
+        rural_solar: "Solar - Rural",
+        urban_solar: "Solar - Urban"
+    };
+
     // select the data for the dropdwown menu
     keys.forEach(function(d) {
-        if (d !== "state" && d !== "id" && d!="rank" && d!="population"){
-            dropdown.append("option").text(d).property("value");
+        if (d !== "state" && d !== "id" && d !== "rank" && d !== "population" && d !== "energy_consumption") {
+            dropdown.append("option").text(plotNames[d]).property("value", d);
         }       
     });
     //  display the plot for the second index value
@@ -25,7 +39,6 @@ d3.json(url, function(data) {
 
     //  create a function that creates the plot
     function getPlot(value, data) {
-        
         //  create the trace variable
         var trace = {
             x: data.state,
