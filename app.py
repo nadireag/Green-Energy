@@ -47,7 +47,7 @@ def landing_page():
 
 @app.route("/map")
 def map():
-    return render_template("map.html")
+    return render_template("map.html", API_KEY=os.environ["API_KEY"])
 
 @app.route("/plots")
 def plots():
