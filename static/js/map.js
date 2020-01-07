@@ -87,7 +87,7 @@ d3.json(data_url, function(data){
     legend.onAdd = function (map) {
         // create a div for the legend
         var div = L.DomUtil.create('div', 'info legend');
-            div.innerHTML += "<p>Energy Difference (million)</p>";
+            div.innerHTML += "<p>Energy Difference (Gwhs millions)</p>";
             grades = [ -100000,0, 1000000, 5000000, 10000000, 20000000, 30000000, 40000000]
             labels = [];
             grades1 = ["<0", "0-1", "1-5", "5-10", "10-20", "20-30", "30-40", "40+"]
