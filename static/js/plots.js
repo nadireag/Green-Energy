@@ -36,7 +36,10 @@ d3.json(url, function(data) {
         }       
     });
     //  display the plot for the second index value
-    getPlot(keys[0], data);
+    getPlot(keys[1], data);
+
+    // Select biopower_solid by default
+    document.getElementById("selDataset2").options.selectedIndex = 1;
 
     //  create a function that creates the plot
     function getPlot(value, data) {
@@ -134,7 +137,7 @@ d3.json(url, function(data){
 
     // create layout variable for the plot's styling
     var layout = {
-        title:"<b>Most Popular Renewable Energy Types</b>",
+        title:"<b>Greatest Potential Renewable Energy by Type</b>",
         xaxis:{
             title:"Renewable Energy Types",
             tickangle: -20
