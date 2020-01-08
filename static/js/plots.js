@@ -45,7 +45,7 @@ d3.json(url, function(data) {
     function getPlot(value, data) {
         //  create the trace variable
         var trace = {
-            x: data.state.sort(),
+            x: data.state,
             y: data[value],
             mode:"markers",
             type: "scatter",
@@ -88,7 +88,7 @@ d3.json(url, function(data) {
 });
 
 //  get the data with url
-d3.json(url, function(data){
+d3.json(url, function(data) {
    
     //  create renewable variable to store total values for each renewable type
     var renewable = [];
