@@ -14,6 +14,7 @@ d3.json(url, function(data) {
     //  create keys variable
     var keys = Object.keys(data);
 
+    // rename the variables for the dropdownn 
     var plotNames = {
         biopower_gaseous: "Biopower - Gas",
         biopower_solid: "Biopower - Solid",
@@ -41,7 +42,7 @@ d3.json(url, function(data) {
     function getPlot(value, data) {
         //  create the trace variable
         var trace = {
-            x: data.state,
+            x: data.state.sort(),
             y: data[value],
             mode:"markers",
             type: "scatter",
