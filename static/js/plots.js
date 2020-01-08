@@ -1,6 +1,21 @@
 // get our url for the data
 var url = "/api/green_energy";
 
+// rename the variables for the dropdownn 
+var plotNames = {
+    biopower_gaseous: "Biopower - Gas",
+    biopower_solid: "Biopower - Solid",
+    csp_solar: "CSP Solar",
+    egs_geothermal: "EGS Geothermal",
+    geotermal_hydrothermal: "Hydrothermal Geothermal",
+    hydropower: "Hydropower",
+    offshore_wind: "Wind - Offshore",
+    onshore_wind: "Wind - Onshore",
+    rooftop_solar: "Solar - Rooftop",
+    rural_solar: "Solar - Rural",
+    urban_solar: "Solar - Urban"
+};
+
 // Select data and get value variale for the plot
 d3.json(url, function(data) {
     document.getElementById("selDataset2").addEventListener("change", function() {
@@ -13,21 +28,6 @@ d3.json(url, function(data) {
 
     //  create keys variable
     var keys = Object.keys(data);
-
-    // rename the variables for the dropdownn 
-    var plotNames = {
-        biopower_gaseous: "Biopower - Gas",
-        biopower_solid: "Biopower - Solid",
-        csp_solar: "CSP Solar",
-        egs_geothermal: "EGS Geothermal",
-        geotermal_hydrothermal: "Hydrothermal Geothermal",
-        hydropower: "Hydropower",
-        offshore_wind: "Wind - Offshore",
-        onshore_wind: "Wind - Onshore",
-        rooftop_solar: "Solar - Rooftop",
-        rural_solar: "Solar - Rural",
-        urban_solar: "Solar - Urban"
-    };
 
     // select the data for the dropdwown menu
     keys.forEach(function(d) {
@@ -118,7 +118,7 @@ d3.json(url, function(data){
     for (var i=0; i < names.length; i ++){
         if (names[i] != "energy_consumption" && names[i] != "rank" && names[i] !="id" &&
          names[i] != "state" && names[i] != "population"){
-             renewable_names.push(names[i])
+             renewable_names.push(plotNames[names[i]])
         }
     };
 
