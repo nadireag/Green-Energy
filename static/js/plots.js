@@ -36,7 +36,7 @@ d3.json(url, function(data) {
         }       
     });
     //  display the plot for the second index value
-    getPlot(keys[1], data);
+    getPlot(keys[0], data);
 
     //  create a function that creates the plot
     function getPlot(value, data) {
