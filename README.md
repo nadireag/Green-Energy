@@ -13,6 +13,8 @@
 
 * https://leafletjs.com/examples/choropleth/us-states.js
 
+* Our ETL project link for data cleaning part https://github.com/nadireag/ETL-Project
+
 ### Description:
 
 Renewable energy is energy that comes from natural resources such as sunlight, wind, rain, tides, plants, waves and geothermal heat. These energy resources are renewable, meaning they are naturally replenished.
